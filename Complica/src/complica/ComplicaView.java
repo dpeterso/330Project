@@ -202,6 +202,39 @@ public class ComplicaView extends FrameView {
 
     }
 
+    public void resetBoard(){
+        Color color = new Color(240, 240, 240);
+        jPanel5.setBackground(color);
+        jPanel6.setBackground(color);
+        jPanel7.setBackground(color);
+        jPanel8.setBackground(color);
+        jPanel9.setBackground(color);
+        jPanel10.setBackground(color);
+        jPanel11.setBackground(color);
+        jPanel12.setBackground(color);
+        jPanel13.setBackground(color);
+        jPanel14.setBackground(color);
+        jPanel15.setBackground(color);
+        jPanel16.setBackground(color);
+        jPanel17.setBackground(color);
+        jPanel18.setBackground(color);
+        jPanel19.setBackground(color);
+        jPanel20.setBackground(color);
+        jPanel21.setBackground(color);
+        jPanel22.setBackground(color);
+        jPanel23.setBackground(color);
+        jPanel24.setBackground(color);
+        jPanel25.setBackground(color);
+        jPanel26.setBackground(color);
+        jPanel27.setBackground(color);
+        jPanel28.setBackground(color);
+        jPanel29.setBackground(color);
+        jPanel30.setBackground(color);
+        jPanel31.setBackground(color);
+        jPanel32.setBackground(color);
+        gameBoard.resetBoardArray();
+    }
+
     @Action
     public void showAboutBox() {
         if (aboutBox == null) {
@@ -1076,11 +1109,30 @@ public class ComplicaView extends FrameView {
             updateBoard(0, gameBoard.addPiece(2,0), 2);
         }
         if(gameBoard.checkWinner()==1){
-            //player one wins
+            p1.win();
+            p2.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player one wins!");
+            lblPlayerTurn.setText(p1.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.RED);
+            //resetBoard();
         }
-        //else if(gameBoard.checkWinner()==2){
-            //player two wins
-       //}
+        else if(gameBoard.checkWinner()==2){
+            p2.win();
+            p1.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player two wins!");
+            lblPlayerTurn.setText(p2.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.BLUE);
+
+            //resetBoard();
+        }
         numMoves++;
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -1092,11 +1144,29 @@ public class ComplicaView extends FrameView {
             updateBoard(1, gameBoard.addPiece(2,1), 2);
         }
         if(gameBoard.checkWinner()==1){
-            //player one wins
+            p1.win();
+            p2.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player one wins!");
+            lblPlayerTurn.setText(p1.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.RED);
+            //resetBoard();
         }
-        //else if(gameBoard.checkWinner()==2){
-            //player two wins
-       //}
+        else if(gameBoard.checkWinner()==2){
+            p2.win();
+            p1.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player two wins!");
+            lblPlayerTurn.setText(p2.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.BLUE);
+            //resetBoard();
+        }
             numMoves++;
     }//GEN-LAST:event_jPanel2MouseClicked
 
@@ -1108,11 +1178,29 @@ public class ComplicaView extends FrameView {
             updateBoard(2, gameBoard.addPiece(2,2), 2);
         }
         if(gameBoard.checkWinner()==1){
-            //player one wins
+            p1.win();
+            p2.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player one wins!");
+            lblPlayerTurn.setText(p1.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.RED);
+            //resetBoard();
         }
-        //else if(gameBoard.checkWinner()==2){
-            //player two wins
-       //}
+        else if(gameBoard.checkWinner()==2){
+            p2.win();
+            p1.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player two wins!");
+            lblPlayerTurn.setText(p2.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.BLUE);
+            //resetBoard();
+       }
             numMoves++;
     }//GEN-LAST:event_jPanel3MouseClicked
 
@@ -1124,11 +1212,29 @@ public class ComplicaView extends FrameView {
             updateBoard(3, gameBoard.addPiece(2,3), 2);
         }
         if(gameBoard.checkWinner()==1){
-            //player one wins
+            p1.win();
+            p2.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            System.out.println("Player one wins!");
+            lblPlayerTurn.setText(p1.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.RED);
+            //resetBoard();
         }
-        //else if(gameBoard.checkWinner()==2){
-            //player two wins
-       //}      
+        else if(gameBoard.checkWinner()==2){
+            System.out.println("Player two wins!");
+            p2.win();
+            p1.lose();
+            lblP1W.setText(Integer.toString(p1.getWins()));
+            lblP1L.setText(Integer.toString(p1.getLosses()));
+            lblP1W1.setText(Integer.toString(p2.getWins()));
+            lblP1L1.setText(Integer.toString(p2.getLosses()));
+            lblPlayerTurn.setText(p2.getName() + " Wins!");
+            lblPlayerTurn.setForeground(Color.BLUE);
+            //resetBoard();
+       }      
             numMoves++;
     }//GEN-LAST:event_jPanel4MouseClicked
 

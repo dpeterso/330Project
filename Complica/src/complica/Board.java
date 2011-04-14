@@ -49,6 +49,15 @@ public class Board {
         return -1;
     }
 
+    public void resetBoardArray(){
+        for(int i = 0; i<7;i++){
+            for(int j = 0; j<4; j++){
+                gameBoard[j][i]= 0;
+            }
+        }
+
+    }
+
     public int checkWinner(){
         final int p1Win = 1;
         final int p2Win = 2;
@@ -56,6 +65,7 @@ public class Board {
         final int noWinner = -1;
         boolean p1Four = false;
         boolean p2Four = false;
+
 
         for(int i = 0; i<7;i++){
             for(int j = 0; j<4; j++){
@@ -65,7 +75,8 @@ public class Board {
         }
         System.out.println();
 
-
+        p1Four = checkFour(1);
+        p2Four = checkFour(2);
 
         if((p1Four==true)&&(p2Four==true)){
             return tie;
@@ -79,6 +90,48 @@ public class Board {
         else{
             return noWinner;
         }
+    }
+
+    private boolean checkFour(int p){
+        boolean hasFour = false;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<7; j++){
+                //check vertical
+                if(j+3<7){
+                     if((gameBoard[i][j]==p) && (gameBoard[i][j+1]==p) &&
+                        (gameBoard[i][j+2]==p) && (gameBoard[i][j+3]==p)){
+                         hasFour = true;
+                         return hasFour;
+                    }
+                }
+                //check horizontal
+                if(i+3<4){
+                     if((gameBoard[i][j]==p) && (gameBoard[i+1][j]==p) &&
+                        (gameBoard[i+2][j]==p) && (gameBoard[i+3][j]==p)){
+                         hasFour = true;
+                         return hasFour;
+                    }
+                }
+                //check down diagonal
+                if(i==0 && j+3<7){
+                     if((gameBoard[i][j]==p) && (gameBoard[i+1][j+1]==p) &&
+                        (gameBoard[i+2][j+2]==p)&&(gameBoard[i+3][j+3]==p)){
+                         hasFour = true;
+                         return hasFour;
+                    }
+                }
+                //check up diagonal
+                if(i==0 && j-3>=0){
+                     if((gameBoard[i][j]==p) && (gameBoard[i+1][j-1]==p) &&
+                        (gameBoard[i+2][j-2]==p)&&(gameBoard[i+3][j-3]==p)){
+                         hasFour = true;
+                         return hasFour;
+                    }
+                }
+            }        
+        }
+
+        return false;
     }
 
     @Override
