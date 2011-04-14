@@ -233,6 +233,7 @@ public class ComplicaView extends FrameView {
         jPanel31.setBackground(color);
         jPanel32.setBackground(color);
         gameBoard.resetBoardArray();
+        winner = false;
     }
 
     @Action
@@ -1108,7 +1109,7 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(0, gameBoard.addPiece(2,0), 2);
         }
-        if(gameBoard.checkWinner()==1){
+        if(gameBoard.checkWinner()==1 && winner == false){
             p1.win();
             p2.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1118,9 +1119,10 @@ public class ComplicaView extends FrameView {
             System.out.println("Player one wins!");
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
+            winner  = true;
             //resetBoard();
         }
-        else if(gameBoard.checkWinner()==2){
+        else if(gameBoard.checkWinner()==2 && winner == false){
             p2.win();
             p1.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1130,7 +1132,7 @@ public class ComplicaView extends FrameView {
             System.out.println("Player two wins!");
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
-
+            winner  = true;
             //resetBoard();
         }
         numMoves++;
@@ -1143,7 +1145,7 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(1, gameBoard.addPiece(2,1), 2);
         }
-        if(gameBoard.checkWinner()==1){
+        if(gameBoard.checkWinner()==1 && winner == false){
             p1.win();
             p2.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1154,8 +1156,9 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
             //resetBoard();
+            winner  = true;
         }
-        else if(gameBoard.checkWinner()==2){
+        else if(gameBoard.checkWinner()==2 && winner == false){
             p2.win();
             p1.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1166,6 +1169,7 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
             //resetBoard();
+            winner  = true;
         }
             numMoves++;
     }//GEN-LAST:event_jPanel2MouseClicked
@@ -1177,7 +1181,7 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(2, gameBoard.addPiece(2,2), 2);
         }
-        if(gameBoard.checkWinner()==1){
+        if(gameBoard.checkWinner()==1 && winner == false){
             p1.win();
             p2.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1188,8 +1192,9 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
             //resetBoard();
+            winner  = true;
         }
-        else if(gameBoard.checkWinner()==2){
+        else if(gameBoard.checkWinner()==2 && winner == false){
             p2.win();
             p1.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1200,6 +1205,7 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
             //resetBoard();
+            winner  = true;
        }
             numMoves++;
     }//GEN-LAST:event_jPanel3MouseClicked
@@ -1211,7 +1217,7 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(3, gameBoard.addPiece(2,3), 2);
         }
-        if(gameBoard.checkWinner()==1){
+        if(gameBoard.checkWinner()==1 && winner == false){
             p1.win();
             p2.lose();
             lblP1W.setText(Integer.toString(p1.getWins()));
@@ -1222,8 +1228,9 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
             //resetBoard();
+            winner  = true;
         }
-        else if(gameBoard.checkWinner()==2){
+        else if(gameBoard.checkWinner()==2 && winner == false){
             System.out.println("Player two wins!");
             p2.win();
             p1.lose();
@@ -1234,6 +1241,7 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
             //resetBoard();
+            winner  = true;
        }      
             numMoves++;
     }//GEN-LAST:event_jPanel4MouseClicked
