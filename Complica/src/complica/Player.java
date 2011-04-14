@@ -18,13 +18,16 @@ public class Player {
         hasWon = false;
         wins = 0;
         losses = 0;
+        turnDone = false;
     }
 
-    public Player(String pName, boolean pHasWon, int pWins, int pLosses) {
+    public Player(String pName, boolean pHasWon, int pWins, int pLosses,
+            boolean pTurnDone) {
         name = pName;
         hasWon = pHasWon;
         wins = pWins;
         losses = pLosses;
+        turnDone = pTurnDone;
     }
 
     public void lose(){
@@ -67,6 +70,16 @@ public class Player {
         wins = pWins;
     }
 
+    public boolean isTurnDone() {
+        return turnDone;
+    }
+
+    public void setTurnDone(boolean pTurnDone) {
+        turnDone = pTurnDone;
+    }
+
+
+
     @Override
     public String toString() {
         return "Player{" + "/n name= " + name + "/n hasWon =" + hasWon
@@ -100,7 +113,7 @@ public class Player {
     
     @Override
     public Player clone() {
-        Player dup = new Player(name, hasWon, wins, losses);
+        Player dup = new Player(name, hasWon, wins, losses, turnDone);
         return dup;
     }
 
@@ -128,4 +141,5 @@ public class Player {
     private boolean hasWon;
     private int wins;
     private int losses;
+    private boolean turnDone;
 }

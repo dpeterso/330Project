@@ -33,6 +33,16 @@ public class Board {
             }
         }
     }
+    public int addPiece(int p, int col){
+        for(int i = 6; i >= 0; i--){
+            if(gameBoard[col][i] == 0){
+                gameBoard[col][i] = p;
+                return i;
+            }
+        }
+
+        return 0; //delete me
+    }
 
     @Override
     public String toString(){

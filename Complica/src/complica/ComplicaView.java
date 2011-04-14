@@ -4,6 +4,7 @@
 
 package complica;
 
+import java.awt.Color;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -21,6 +22,13 @@ import javax.swing.JFrame;
  */
 public class ComplicaView extends FrameView {
 
+     int numMoves = 0;
+     boolean winner = false;
+     Board gameBoard= new Board();
+     Player p1 = new Player();
+     Player p2 = new Player();
+
+     
     public ComplicaView(SingleFrameApplication app) {
         super(app);
 
@@ -79,6 +87,69 @@ public class ComplicaView extends FrameView {
                 }
             }
         });
+
+    }
+
+    public void updateBoard(int x, int y, int player){
+        Color color;
+        if(player == 1){
+            color = Color.RED;
+        }
+        else{
+            color = Color.BLUE;
+        }
+        switch (y){
+            case 0:
+                switch (x){
+                    case 0: jPanel5.setBackground(color); break;
+                    case 1: jPanel12.setBackground(color); break;
+                    case 2: jPanel19.setBackground(color); break;
+                    case 3: jPanel26.setBackground(color); break;
+                } break;
+            case 1:
+                switch (x){
+                    case 0: jPanel6.setBackground(color); break;
+                    case 1: jPanel14.setBackground(color); break;
+                    case 2: jPanel20.setBackground(color); break;
+                    case 3: jPanel27.setBackground(color); break;
+                } break;
+            case 2:
+                switch (x){
+                    case 0: jPanel7.setBackground(color); break;
+                    case 1: jPanel15.setBackground(color); break;
+                    case 2: jPanel21.setBackground(color); break;
+                    case 3: jPanel28.setBackground(color); break;
+                } break;
+            case 3:
+                switch (x){
+                    case 0: jPanel8.setBackground(color); break;
+                    case 1: jPanel16.setBackground(color); break;
+                    case 2: jPanel22.setBackground(color); break;
+                    case 3: jPanel29.setBackground(color); break;
+                } break;
+            case 4:
+                switch (x){
+                    case 0: jPanel9.setBackground(color); break;
+                    case 1: jPanel17.setBackground(color); break;
+                    case 2: jPanel23.setBackground(color); break;
+                    case 3: jPanel30.setBackground(color); break;
+                } break;
+            case 5:
+                switch (x){
+                    case 0: jPanel10.setBackground(color); break;
+                    case 1: jPanel18.setBackground(color); break;
+                    case 2: jPanel24.setBackground(color); break;
+                    case 3: jPanel31.setBackground(color); break;
+                } break;
+            case 6:
+                switch (x){
+                    case 0: jPanel11.setBackground(color); break;
+                    case 1: jPanel13.setBackground(color); break;
+                    case 2: jPanel25.setBackground(color); break;
+                    case 3: jPanel32.setBackground(color); break;
+                } break;
+        }
+
     }
 
     @Action
@@ -149,6 +220,11 @@ public class ComplicaView extends FrameView {
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(complica.ComplicaApp.class).getContext().getResourceMap(ComplicaView.class);
         jPanel1.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         jPanel5.setName("jPanel5"); // NOI18N
 
@@ -250,27 +326,27 @@ public class ComplicaView extends FrameView {
                 .add(jPanel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .add(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .add(jPanel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -296,6 +372,11 @@ public class ComplicaView extends FrameView {
 
         jPanel2.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jPanel17.setName("jPanel17"); // NOI18N
 
@@ -426,6 +507,11 @@ public class ComplicaView extends FrameView {
 
         jPanel3.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel3.setName("jPanel3"); // NOI18N
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jPanel19.setName("jPanel19"); // NOI18N
 
@@ -573,6 +659,11 @@ public class ComplicaView extends FrameView {
 
         jPanel4.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
         jPanel4.setName("jPanel4"); // NOI18N
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jPanel30.setName("jPanel30"); // NOI18N
 
@@ -714,12 +805,12 @@ public class ComplicaView extends FrameView {
                 .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -765,7 +856,7 @@ public class ComplicaView extends FrameView {
             .add(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(statusMessageLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 370, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 391, Short.MAX_VALUE)
                 .add(progressBar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(statusAnimationLabel)
@@ -787,6 +878,47 @@ public class ComplicaView extends FrameView {
         setMenuBar(menuBar);
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        if(numMoves % 2 == 0){
+            updateBoard(0, gameBoard.addPiece(1, 0), 1);
+        }
+        else {
+            updateBoard(0, gameBoard.addPiece(2,0), 2);
+        }
+        numMoves++;
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        if(numMoves % 2 == 0){
+            updateBoard(1, gameBoard.addPiece(1, 1), 1);
+        }
+        else {
+            updateBoard(1, gameBoard.addPiece(2,1), 2);
+        }
+            numMoves++;
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        if(numMoves % 2 == 0){
+            updateBoard(2, gameBoard.addPiece(1, 2), 1);
+        }
+        else {
+            updateBoard(2, gameBoard.addPiece(2,2), 2);
+        }
+
+            numMoves++;
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        if(numMoves % 2 == 0){
+            updateBoard(3, gameBoard.addPiece(1, 3), 1);
+        }
+        else {
+            updateBoard(3, gameBoard.addPiece(2,3), 2);
+        }
+            numMoves++;
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
