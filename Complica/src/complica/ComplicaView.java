@@ -99,105 +99,107 @@ public class ComplicaView extends FrameView {
 
     public void updateBoard(int x, int y, int player){
         Color color;
-        if(player == 1){
-            color = Color.RED;
-            lblPlayerTurn.setText(p2.getName() + "'s Move");
-            lblPlayerTurn.setForeground(Color.BLUE);
-        }
-        else{
-            color = Color.BLUE;
-            lblPlayerTurn.setText(p1.getName() + "'s Move");
-            lblPlayerTurn.setForeground(Color.RED);
-        }
-        switch (y){
-            case -1:
-                switch (x){
-                    case 0:
-                        jPanel11.setBackground(jPanel10.getBackground());
-                        jPanel10.setBackground(jPanel9.getBackground());
-                        jPanel9.setBackground(jPanel8.getBackground());
-                        jPanel8.setBackground(jPanel7.getBackground());
-                        jPanel7.setBackground(jPanel6.getBackground());
-                        jPanel6.setBackground(jPanel5.getBackground());
-                        jPanel5.setBackground(color);
-                        break;
-                    case 1:
-                        jPanel13.setBackground(jPanel18.getBackground());
-                        jPanel18.setBackground(jPanel17.getBackground());
-                        jPanel17.setBackground(jPanel16.getBackground());
-                        jPanel16.setBackground(jPanel15.getBackground());
-                        jPanel15.setBackground(jPanel14.getBackground());
-                        jPanel14.setBackground(jPanel12.getBackground());
-                        jPanel12.setBackground(color);
-                        break;
-                    case 2:
-                        jPanel25.setBackground(jPanel24.getBackground());
-                        jPanel24.setBackground(jPanel23.getBackground());
-                        jPanel23.setBackground(jPanel22.getBackground());
-                        jPanel22.setBackground(jPanel21.getBackground());
-                        jPanel21.setBackground(jPanel20.getBackground());
-                        jPanel20.setBackground(jPanel19.getBackground());
-                        jPanel19.setBackground(color);
-                        break;
-                    case 3:
-                        jPanel32.setBackground(jPanel31.getBackground());
-                        jPanel31.setBackground(jPanel30.getBackground());
-                        jPanel30.setBackground(jPanel29.getBackground());
-                        jPanel29.setBackground(jPanel28.getBackground());
-                        jPanel28.setBackground(jPanel27.getBackground());
-                        jPanel27.setBackground(jPanel26.getBackground());
-                        jPanel26.setBackground(color);
-                        break;
-                } break;
-            case 0:
-                switch (x){
-                    case 0: jPanel5.setBackground(color); break;
-                    case 1: jPanel12.setBackground(color); break;
-                    case 2: jPanel19.setBackground(color); break;
-                    case 3: jPanel26.setBackground(color); break;
-                } break;
-            case 1:
-                switch (x){
-                    case 0: jPanel6.setBackground(color); break;
-                    case 1: jPanel14.setBackground(color); break;
-                    case 2: jPanel20.setBackground(color); break;
-                    case 3: jPanel27.setBackground(color); break;
-                } break;
-            case 2:
-                switch (x){
-                    case 0: jPanel7.setBackground(color); break;
-                    case 1: jPanel15.setBackground(color); break;
-                    case 2: jPanel21.setBackground(color); break;
-                    case 3: jPanel28.setBackground(color); break;
-                } break;
-            case 3:
-                switch (x){
-                    case 0: jPanel8.setBackground(color); break;
-                    case 1: jPanel16.setBackground(color); break;
-                    case 2: jPanel22.setBackground(color); break;
-                    case 3: jPanel29.setBackground(color); break;
-                } break;
-            case 4:
-                switch (x){
-                    case 0: jPanel9.setBackground(color); break;
-                    case 1: jPanel17.setBackground(color); break;
-                    case 2: jPanel23.setBackground(color); break;
-                    case 3: jPanel30.setBackground(color); break;
-                } break;
-            case 5:
-                switch (x){
-                    case 0: jPanel10.setBackground(color); break;
-                    case 1: jPanel18.setBackground(color); break;
-                    case 2: jPanel24.setBackground(color); break;
-                    case 3: jPanel31.setBackground(color); break;
-                } break;
-            case 6:
-                switch (x){
-                    case 0: jPanel11.setBackground(color); break;
-                    case 1: jPanel13.setBackground(color); break;
-                    case 2: jPanel25.setBackground(color); break;
-                    case 3: jPanel32.setBackground(color); break;
-                } break;
+        if(winner == false){
+            if(player == 1){
+                color = Color.RED;
+                lblPlayerTurn.setText(p2.getName() + "'s Move");
+                lblPlayerTurn.setForeground(Color.BLUE);
+            }
+            else{
+                color = Color.BLUE;
+                lblPlayerTurn.setText(p1.getName() + "'s Move");
+                lblPlayerTurn.setForeground(Color.RED);
+            }
+            switch (y){
+                case -1:
+                    switch (x){
+                        case 0:
+                            jPanel11.setBackground(jPanel10.getBackground());
+                            jPanel10.setBackground(jPanel9.getBackground());
+                            jPanel9.setBackground(jPanel8.getBackground());
+                            jPanel8.setBackground(jPanel7.getBackground());
+                            jPanel7.setBackground(jPanel6.getBackground());
+                            jPanel6.setBackground(jPanel5.getBackground());
+                            jPanel5.setBackground(color);
+                            break;
+                        case 1:
+                            jPanel13.setBackground(jPanel18.getBackground());
+                            jPanel18.setBackground(jPanel17.getBackground());
+                            jPanel17.setBackground(jPanel16.getBackground());
+                            jPanel16.setBackground(jPanel15.getBackground());
+                            jPanel15.setBackground(jPanel14.getBackground());
+                            jPanel14.setBackground(jPanel12.getBackground());
+                            jPanel12.setBackground(color);
+                            break;
+                        case 2:
+                            jPanel25.setBackground(jPanel24.getBackground());
+                            jPanel24.setBackground(jPanel23.getBackground());
+                            jPanel23.setBackground(jPanel22.getBackground());
+                            jPanel22.setBackground(jPanel21.getBackground());
+                            jPanel21.setBackground(jPanel20.getBackground());
+                            jPanel20.setBackground(jPanel19.getBackground());
+                            jPanel19.setBackground(color);
+                            break;
+                        case 3:
+                            jPanel32.setBackground(jPanel31.getBackground());
+                            jPanel31.setBackground(jPanel30.getBackground());
+                            jPanel30.setBackground(jPanel29.getBackground());
+                            jPanel29.setBackground(jPanel28.getBackground());
+                            jPanel28.setBackground(jPanel27.getBackground());
+                            jPanel27.setBackground(jPanel26.getBackground());
+                            jPanel26.setBackground(color);
+                            break;
+                    } break;
+                case 0:
+                    switch (x){
+                        case 0: jPanel5.setBackground(color); break;
+                        case 1: jPanel12.setBackground(color); break;
+                        case 2: jPanel19.setBackground(color); break;
+                        case 3: jPanel26.setBackground(color); break;
+                    } break;
+                case 1:
+                    switch (x){
+                        case 0: jPanel6.setBackground(color); break;
+                        case 1: jPanel14.setBackground(color); break;
+                        case 2: jPanel20.setBackground(color); break;
+                        case 3: jPanel27.setBackground(color); break;
+                    } break;
+                case 2:
+                    switch (x){
+                        case 0: jPanel7.setBackground(color); break;
+                        case 1: jPanel15.setBackground(color); break;
+                        case 2: jPanel21.setBackground(color); break;
+                        case 3: jPanel28.setBackground(color); break;
+                    } break;
+                case 3:
+                    switch (x){
+                        case 0: jPanel8.setBackground(color); break;
+                        case 1: jPanel16.setBackground(color); break;
+                        case 2: jPanel22.setBackground(color); break;
+                        case 3: jPanel29.setBackground(color); break;
+                    } break;
+                case 4:
+                    switch (x){
+                        case 0: jPanel9.setBackground(color); break;
+                        case 1: jPanel17.setBackground(color); break;
+                        case 2: jPanel23.setBackground(color); break;
+                        case 3: jPanel30.setBackground(color); break;
+                    } break;
+                case 5:
+                    switch (x){
+                        case 0: jPanel10.setBackground(color); break;
+                        case 1: jPanel18.setBackground(color); break;
+                        case 2: jPanel24.setBackground(color); break;
+                        case 3: jPanel31.setBackground(color); break;
+                    } break;
+                case 6:
+                    switch (x){
+                        case 0: jPanel11.setBackground(color); break;
+                        case 1: jPanel13.setBackground(color); break;
+                        case 2: jPanel25.setBackground(color); break;
+                        case 3: jPanel32.setBackground(color); break;
+                    } break;
+            }
         }
 
     }
@@ -301,6 +303,7 @@ public class ComplicaView extends FrameView {
         lblP1W1 = new javax.swing.JLabel();
         lblP1L1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -396,7 +399,7 @@ public class ComplicaView extends FrameView {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 80, Short.MAX_VALUE)
+            .add(0, 88, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -583,7 +586,7 @@ public class ComplicaView extends FrameView {
                 .add(jPanel18, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
@@ -735,7 +738,7 @@ public class ComplicaView extends FrameView {
                 .add(jPanel24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(resourceMap.getColor("jPanel1.background")); // NOI18N
@@ -870,7 +873,7 @@ public class ComplicaView extends FrameView {
                 .add(jPanel31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel32, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         lblPlayerTurn.setFont(resourceMap.getFont("lblPlayerTurn.font")); // NOI18N
@@ -977,7 +980,7 @@ public class ComplicaView extends FrameView {
                 .add(jLabel4)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(lblP1L1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -991,6 +994,14 @@ public class ComplicaView extends FrameView {
                     .add(lblP1L1))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
+        jButton1.setName("jButton1"); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout mainPanelLayout = new org.jdesktop.layout.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -1010,11 +1021,12 @@ public class ComplicaView extends FrameView {
                         .add(26, 26, 26)
                         .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel34, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel33, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel33, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jButton1)))
                     .add(mainPanelLayout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(lblPlayerTurn, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 138, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .add(92, 92, 92))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1027,12 +1039,14 @@ public class ComplicaView extends FrameView {
                         .add(jPanel33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jPanel34, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(52, 52, 52)
+                        .add(jButton1)
                         .addContainerGap())
                     .add(mainPanelLayout.createSequentialGroup()
                         .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel4, 0, 669, Short.MAX_VALUE)
+                            .add(jPanel4, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, 0, 669, Short.MAX_VALUE)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel3, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .add(129, 129, 129))))
@@ -1075,7 +1089,7 @@ public class ComplicaView extends FrameView {
             .add(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(statusMessageLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 674, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 690, Short.MAX_VALUE)
                 .add(statusAnimationLabel)
                 .addContainerGap())
             .add(org.jdesktop.layout.GroupLayout.TRAILING, statusPanelSeparator, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
@@ -1120,7 +1134,6 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
             winner  = true;
-            //resetBoard();
         }
         else if(gameBoard.checkWinner()==2 && winner == false){
             p2.win();
@@ -1133,7 +1146,6 @@ public class ComplicaView extends FrameView {
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
             winner  = true;
-            //resetBoard();
         }
         numMoves++;
     }//GEN-LAST:event_jPanel1MouseClicked
@@ -1155,7 +1167,6 @@ public class ComplicaView extends FrameView {
             System.out.println("Player one wins!");
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
-            //resetBoard();
             winner  = true;
         }
         else if(gameBoard.checkWinner()==2 && winner == false){
@@ -1168,7 +1179,6 @@ public class ComplicaView extends FrameView {
             System.out.println("Player two wins!");
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
-            //resetBoard();
             winner  = true;
         }
             numMoves++;
@@ -1191,7 +1201,6 @@ public class ComplicaView extends FrameView {
             System.out.println("Player one wins!");
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
-            //resetBoard();
             winner  = true;
         }
         else if(gameBoard.checkWinner()==2 && winner == false){
@@ -1204,7 +1213,6 @@ public class ComplicaView extends FrameView {
             System.out.println("Player two wins!");
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
-            //resetBoard();
             winner  = true;
        }
             numMoves++;
@@ -1227,7 +1235,6 @@ public class ComplicaView extends FrameView {
             System.out.println("Player one wins!");
             lblPlayerTurn.setText(p1.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.RED);
-            //resetBoard();
             winner  = true;
         }
         else if(gameBoard.checkWinner()==2 && winner == false){
@@ -1240,7 +1247,6 @@ public class ComplicaView extends FrameView {
             lblP1L1.setText(Integer.toString(p2.getLosses()));
             lblPlayerTurn.setText(p2.getName() + " Wins!");
             lblPlayerTurn.setForeground(Color.BLUE);
-            //resetBoard();
             winner  = true;
        }      
             numMoves++;
@@ -1262,7 +1268,12 @@ public class ComplicaView extends FrameView {
         p2.setName(jTextField2.getText());
     }//GEN-LAST:event_jTextField2KeyReleased
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        resetBoard();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
