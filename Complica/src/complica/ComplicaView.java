@@ -99,6 +99,45 @@ public class ComplicaView extends FrameView {
             color = Color.BLUE;
         }
         switch (y){
+            case -1:
+                switch (x){
+                    case 0:
+                        jPanel11.setBackground(jPanel10.getBackground());
+                        jPanel10.setBackground(jPanel9.getBackground());
+                        jPanel9.setBackground(jPanel8.getBackground());
+                        jPanel8.setBackground(jPanel7.getBackground());
+                        jPanel7.setBackground(jPanel6.getBackground());
+                        jPanel6.setBackground(jPanel5.getBackground());
+                        jPanel5.setBackground(color);
+                        break;
+                    case 1:
+                        jPanel13.setBackground(jPanel18.getBackground());
+                        jPanel18.setBackground(jPanel17.getBackground());
+                        jPanel17.setBackground(jPanel16.getBackground());
+                        jPanel16.setBackground(jPanel15.getBackground());
+                        jPanel15.setBackground(jPanel14.getBackground());
+                        jPanel14.setBackground(jPanel12.getBackground());
+                        jPanel12.setBackground(color);
+                        break;
+                    case 2:
+                        jPanel25.setBackground(jPanel24.getBackground());
+                        jPanel24.setBackground(jPanel23.getBackground());
+                        jPanel23.setBackground(jPanel22.getBackground());
+                        jPanel22.setBackground(jPanel21.getBackground());
+                        jPanel21.setBackground(jPanel20.getBackground());
+                        jPanel20.setBackground(jPanel19.getBackground());
+                        jPanel19.setBackground(color);
+                        break;
+                    case 3:
+                        jPanel32.setBackground(jPanel31.getBackground());
+                        jPanel31.setBackground(jPanel30.getBackground());
+                        jPanel30.setBackground(jPanel29.getBackground());
+                        jPanel29.setBackground(jPanel28.getBackground());
+                        jPanel28.setBackground(jPanel27.getBackground());
+                        jPanel27.setBackground(jPanel26.getBackground());
+                        jPanel26.setBackground(color);
+                        break;
+                } break;
             case 0:
                 switch (x){
                     case 0: jPanel5.setBackground(color); break;
