@@ -41,7 +41,7 @@ public class Board {
             }
         }
 
-        return 0; //delete me
+        return -1;
     }
 
     @Override
