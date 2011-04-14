@@ -1075,6 +1075,12 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(0, gameBoard.addPiece(2,0), 2);
         }
+        if(gameBoard.checkWinner()==1){
+            //player one wins
+        }
+        //else if(gameBoard.checkWinner()==2){
+            //player two wins
+       //}
         numMoves++;
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -1085,6 +1091,12 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(1, gameBoard.addPiece(2,1), 2);
         }
+        if(gameBoard.checkWinner()==1){
+            //player one wins
+        }
+        //else if(gameBoard.checkWinner()==2){
+            //player two wins
+       //}
             numMoves++;
     }//GEN-LAST:event_jPanel2MouseClicked
 
@@ -1095,7 +1107,12 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(2, gameBoard.addPiece(2,2), 2);
         }
-
+        if(gameBoard.checkWinner()==1){
+            //player one wins
+        }
+        //else if(gameBoard.checkWinner()==2){
+            //player two wins
+       //}
             numMoves++;
     }//GEN-LAST:event_jPanel3MouseClicked
 
@@ -1106,6 +1123,12 @@ public class ComplicaView extends FrameView {
         else {
             updateBoard(3, gameBoard.addPiece(2,3), 2);
         }
+        if(gameBoard.checkWinner()==1){
+            //player one wins
+        }
+        //else if(gameBoard.checkWinner()==2){
+            //player two wins
+       //}      
             numMoves++;
     }//GEN-LAST:event_jPanel4MouseClicked
 

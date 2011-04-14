@@ -41,10 +41,44 @@ public class Board {
             }
         }
         for(int i = 6; i > 0; i--){
-            gameBoard[col][i] = gameBoard[col][i--];
+            int j = i-1;
+            int temp = gameBoard[col][j];
+            gameBoard[col][i] = temp;
         }
-            gameBoard[col][0] = p;
+        gameBoard[col][0] = p;
         return -1;
+    }
+
+    public int checkWinner(){
+        final int p1Win = 1;
+        final int p2Win = 2;
+        final int tie = 0;
+        final int noWinner = -1;
+        boolean p1Four = false;
+        boolean p2Four = false;
+
+        for(int i = 0; i<7;i++){
+            for(int j = 0; j<4; j++){
+                System.out.print(gameBoard[j][i]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+
+
+        if((p1Four==true)&&(p2Four==true)){
+            return tie;
+        }
+        else if((p1Four==false)&&(p2Four==true)){
+            return p2Win;
+        }
+        else if((p1Four==true)&&(p2Four==false)){
+            return p1Win;
+        }
+        else{
+            return noWinner;
+        }
     }
 
     @Override
