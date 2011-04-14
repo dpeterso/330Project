@@ -40,7 +40,10 @@ public class Board {
                 return i;
             }
         }
-
+        for(int i = 6; i > 0; i--){
+            gameBoard[col][i] = gameBoard[col][i--];
+        }
+            gameBoard[col][0] = p;
         return -1;
     }
 

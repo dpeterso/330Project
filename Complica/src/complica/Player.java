@@ -21,6 +21,14 @@ public class Player {
         turnDone = false;
     }
 
+    public Player(String pName){
+        name= pName;
+        hasWon = false;
+        wins = 0;
+        losses = 0;
+        turnDone = false;
+    }
+
     public Player(String pName, boolean pHasWon, int pWins, int pLosses,
             boolean pTurnDone) {
         name = pName;
