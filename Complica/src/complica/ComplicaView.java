@@ -236,6 +236,15 @@ public class ComplicaView extends FrameView {
         jPanel32.setBackground(color);
         gameBoard.resetBoardArray();
         winner = false;
+        numMoves = 0;
+        if(p1.getLosses() > p1.getWins()){
+            lblPlayerTurn.setText(p1.getName() + "'s Move");
+            lblPlayerTurn.setForeground(Color.RED);
+        }
+        else{
+            lblPlayerTurn.setText(p2.getName() + "'s Move");
+            lblPlayerTurn.setForeground(Color.BLUE);
+        }
     }
 
     @Action
