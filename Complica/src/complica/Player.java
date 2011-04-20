@@ -1,18 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Player.java
  */
 
 package complica;
 
-import java.util.*;
-
 /**
- *
+ * This class maintains player information such as player name, wins/losses
  * @author Jack
  */
 public class Player {
     
+    /**
+     * default constructor, sets name to ""
+     */
     public Player(){
         name= "";
         hasWon = false;
@@ -21,6 +21,10 @@ public class Player {
         turnDone = false;
     }
 
+    /**
+     * non-default constuctor, sets name to pName
+     * @param pName the name to set
+     */
     public Player(String pName){
         name= pName;
         hasWon = false;
@@ -29,6 +33,14 @@ public class Player {
         turnDone = false;
     }
 
+    /**
+     * non-default constructor, sets all variables.
+     * @param pName player name to be set
+     * @param pHasWon whether or not player has won
+     * @param pWins player wins
+     * @param pLosses player losses
+     * @param pTurnDone turn done?
+     */
     public Player(String pName, boolean pHasWon, int pWins, int pLosses,
             boolean pTurnDone) {
         name = pName;
@@ -38,62 +50,117 @@ public class Player {
         turnDone = pTurnDone;
     }
 
+    /**
+     * increments losses
+     */
     public void lose(){
         losses++;
     }
 
+    /**
+     * increments wins
+     */
     public void win(){
         wins++;
     }
     
+    /**
+     * getter for haswon?
+     * @return hasWon
+     */
     public boolean isHasWon() {
         return hasWon;
     }
 
+    /**
+     * setter for has won
+     * @param pHasWon value to set
+     */
     public void setHasWon(boolean pHasWon) {
         hasWon = pHasWon;
     }
 
+    /**
+     * getter for num losses
+     * @return number of losses
+     */
     public int getLosses() {
         return losses;
     }
 
+    /**
+     * setter for num losses
+     * @param pLosses losses to set
+     */
     public void setLosses(int pLosses) {
         losses = pLosses;
     }
 
+    /**
+     * getter for name
+     * @return the player name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * setter for name
+     * @param pName the player name
+     */
     public void setName(String pName) {
         name = pName;
     }
 
+    /**
+     * getter for wins
+     * @return number of player wins
+     */
     public int getWins() {
         return wins;
     }
 
+    /**
+     * setter for wins
+     * @param pWins number of player wins
+     */
     public void setWins(int pWins) {
         wins = pWins;
     }
 
+    /**
+     * getter for turnDone
+     * @return is done true/false
+     */
     public boolean isTurnDone() {
         return turnDone;
     }
 
+    /**
+     * setter for turn done
+     * @param pTurnDone t/f value to set
+     */
     public void setTurnDone(boolean pTurnDone) {
         turnDone = pTurnDone;
     }
 
 
 
+    /**
+     * to string method, converts player to string
+     * @return string representation of player
+     */
     @Override
     public String toString() {
         return "Player{" + "/n name= " + name + "/n hasWon =" + hasWon
                 + "/n wins= " + wins + "/n losses= " + losses + '}';
     }
 
+    /**
+     * determines if one player equals another exactly
+     * @param obj the player to compare
+     * @return t/f depending on equality
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -119,6 +186,10 @@ public class Player {
         return true;
     }
     
+    /**
+     * creates a copy of a player object
+     * @return the newly created copy
+     */
     @Override
     public Player clone() {
         Player dup = new Player(name, hasWon, wins, losses, turnDone);
@@ -129,6 +200,11 @@ public class Player {
     //returns "1" if player is greater than other
     //returns "0" if player equals other
     //returns "-1" if player is worse than other
+    /**
+     * compares two player objects
+     * @param other
+     * @return 1 if greater than other, 0 if equals other, -1 if worse than othr
+     */
     public int compareTo(Player other){
         final int BETTER = 1;
         final int EQUALS =0;
@@ -145,9 +221,9 @@ public class Player {
         }
     }
 
-    private String name;
-    private boolean hasWon;
-    private int wins;
-    private int losses;
-    private boolean turnDone;
+    private String name; //player name
+    private boolean hasWon; //hasWon t/f
+    private int wins; //number of player wins
+    private int losses; //number of player losses
+    private boolean turnDone; // still players turn? t/f
 }

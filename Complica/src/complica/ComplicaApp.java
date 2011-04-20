@@ -1,5 +1,12 @@
 /*
  * ComplicaApp.java
+ *
+ * This program allows for two players to play the game of complica.  It
+ * initiates a GUI of the board that allows the players to click on the row
+ * they want to place a piece. A player wins when they are the only player with
+ * 4 pieces in a row, either vertically or diagnoally.  This program keeps track
+ * of wins and losses and  determines who goes first based on who has more
+ * losses.
  */
 
 package complica;

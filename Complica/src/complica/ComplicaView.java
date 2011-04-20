@@ -1,5 +1,8 @@
 /*
  * ComplicaView.java
+ *
+ * This class creates the GUI and handles the interaction with the board.
+ * It calls upon the player and board classes to keep track of game information.
  */
 
 package complica;
@@ -29,7 +32,12 @@ public class ComplicaView extends FrameView {
      Player p2 = new Player("Player 2");
 
      
-    public ComplicaView(SingleFrameApplication app) {
+     /**
+      * Innitiate the board.
+      *
+      * @param app calls the single frame application app to display the board
+      */
+     public ComplicaView(SingleFrameApplication app) {
         super(app);
 
         initComponents();
@@ -97,8 +105,16 @@ public class ComplicaView extends FrameView {
         }
     }
 
-    public void updateBoard(int x, int y, int player){
+     /**
+      * Updates the GUI board.
+      *
+      * @param x the x coordinate to be updated
+      * @param y the y coordinate to be updated
+      * @param player which player piece to place in board
+      */
+     public void updateBoard(int x, int y, int player){
         Color color;
+        //Displays whos move, selects appropriate color
         if(winner == false){
             if(player == 1){
                 color = Color.RED;
@@ -110,8 +126,9 @@ public class ComplicaView extends FrameView {
                 lblPlayerTurn.setText(p1.getName() + "'s Move");
                 lblPlayerTurn.setForeground(Color.RED);
             }
+            //switch to handle which panel to update based on x and y
             switch (y){
-                case -1:
+                case -1: //board wraps
                     switch (x){
                         case 0:
                             jPanel11.setBackground(jPanel10.getBackground());
@@ -150,6 +167,7 @@ public class ComplicaView extends FrameView {
                             jPanel26.setBackground(color);
                             break;
                     } break;
+                //no wrap necessary
                 case 0:
                     switch (x){
                         case 0: jPanel5.setBackground(color); break;
@@ -204,6 +222,10 @@ public class ComplicaView extends FrameView {
 
     }
 
+    /**
+     * resets the board diplay once game is complete and calls the funciton
+     * to reset the board array. Sets winner to false.
+     */
     public void resetBoard(){
         Color color = new Color(240, 240, 240);
         jPanel5.setBackground(color);
@@ -249,6 +271,9 @@ public class ComplicaView extends FrameView {
         }
     }
 
+    /**
+     * shows an about box with rules of the game.
+     */
     @Action
     public void showAboutBox() {
         if (aboutBox == null) {
@@ -1262,6 +1287,8 @@ public class ComplicaView extends FrameView {
        }      
             numMoves++;
     }//GEN-LAST:event_jPanel4MouseClicked
+
+    //various handlers:
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         p1.setName(jTextField1.getText());
